@@ -1,0 +1,22 @@
+name: Python unittests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Repository letöltése
+      uses: actions/checkout@v4
+
+    - name: Python telepítése
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: Unittestek futtatása
+      run: |
+        python -m unittest discover
