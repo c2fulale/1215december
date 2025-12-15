@@ -2,6 +2,9 @@ import unittest
 
 
 def maganhangzot_torol(szoveg: str) -> str:
+    """
+    Eltávolítja a szövegben található összes magánhangzót (a, e, i, o, u és nagybetűs változataik).
+    """
     maganhangzok = "aeiouAEIOU"
     return "".join(karakter for karakter in szoveg if karakter not in maganhangzok)
 
@@ -17,13 +20,13 @@ class TestMaganhangzoTorol(unittest.TestCase):
     def test_szokoz_es_irasjelek(self):
         self.assertEqual(
             maganhangzot_torol("Ez egy teszt mondat."),
-            "z ny tszt mndt."
+            "z gy tszt mndt."
         )
 
     def test_szamok_es_egyeb(self):
         self.assertEqual(
             maganhangzot_torol("Twitter 280 karakter!"),
-            "Twttr 280 krrktr!"
+            "Twttr 280 krktr!"
         )
 
     def test_ures_szoveg(self):
